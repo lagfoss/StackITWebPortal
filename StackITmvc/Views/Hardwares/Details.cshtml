@@ -1,0 +1,27 @@
+﻿@model StackITmvc.Models.Hardware
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<hr />
+<h4>Hardware</h4>
+
+<section class="detail-information">
+    <table class="detail-information__wrapper">
+        <tr>
+            <th class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HardwareName)
+            </th>
+            <td class="col-sm-10">
+                @Html.DisplayFor(model => model.HardwareName)
+            </td>
+        </tr>
+    </table>
+</section>
+<div>
+    <a class="btn--primary" asp-action="Edit" asp-route-id="@Model.HardwareId">Edit</i></a>
+    <a asp-action="Index">Back to List</a>
+</div>
+

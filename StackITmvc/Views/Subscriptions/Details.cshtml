@@ -1,0 +1,84 @@
+﻿@model StackITmvc.Models.Subscription
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<hr />
+
+<h4>Subscription</h4>
+<section class="detail-information">
+    <table class="detail-information__wrapper">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.SubscriptionName)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Company.CompanyName)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserSubscriptions)
+            </th>
+            <td class="col-sm-10">
+                <table class="table">
+                    <tr>
+                        <th>Full Name</th>
+                    </tr>
+                    @foreach (var item in Model.UserSubscriptions)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.FullName)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hardware)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Hardware.HardwareName)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                
+        <tr>
+            <th>Jobs</th>
+            <td class="col-sm-10">
+                <table class="table">
+
+                    @foreach (var item in Model.SubscriptionJobs)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Job.JobName)
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            </td>
+
+        </tr>
+    </table>
+</section>
+<div>
+    <a class="btn--primary" asp-action="Edit" asp-route-id="@Model.SubscriptionId">Edit</a>
+    <a asp-action="Index">Back to List</a>
+</div>

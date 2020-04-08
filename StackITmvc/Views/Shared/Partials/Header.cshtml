@@ -1,0 +1,24 @@
+﻿@page
+@{
+    <header class="site-header">
+        <nav>
+            <ul class="nav-primary site-wrapper">
+                <li class="nav-primary__item--left nav-primary__link--image">
+                    <a asp-controller="Home" asp-action="Index">
+                        <img class="header__logo" src="../Image/Icons/logo1.png">
+                    </a>
+                </li>
+                <li class="nav-primary__item nav-primary__item--left">
+                    <a class="nav-primary__link" asp-controller="Home" asp-action="About" >About</a>
+                </li>
+                <li class="nav-primary__item nav-primary__item--left">
+                    <a class="nav-primary__link" asp-controller="Home" asp-action="Contact" >Contact</a>
+                </li>
+                <li class="nav-primary__item nav-primary__item--right">
+                    <a class="nav-primary__link" asp-controller="Login" asp-action="Login">Sign In <i class="fas fa-sign-in-alt"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+}

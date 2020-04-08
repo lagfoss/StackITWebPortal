@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/d17f325ac5.js" crossorigin="anonymous"></script>
+    <title>@ViewData["Title"] - StackIT WebPortal</title>
+    <link rel="stylesheet" href="~/css/stylesheet.css" />
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <header class="h">
+
+            <a asp-area="" asp-controller="Dashboard" asp-action="Index" class="header__link"><img src="@Url.Content("Image/Icons/logo1.png")"> <div> - Web Portal </div></a>
+
+            <div class="login-person">
+                @*If the user is signed-in display Logout link*@
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form method="post" asp-controller="Login" asp-action="Logout">
+                        <button type="submit" style="width:auto"
+                                class="nav-link btn btn-link py-0">
+                            Sign Out <u>@User.Identity.Name</u> <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </form>
+                }
+                else
+                {
+                    <a class="nav-link" asp-controller="Login" asp-action="Login">
+                        Login
+                    </a>
+                }
+            </div>
+        </header>
+
+        <aside class="n">
+            <nav class="navbar">
+                @if (User.Identity.IsAuthenticated && User.IsInRole("StackIt"))
+                {
+                <ul>
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-building"></i>
+                            Customer
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Customers" asp-action="Index">All Customers</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="Customers" asp-action="Create">Create Customer</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-user-shield"></i>
+                            K_Admin
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="K_Admins" asp-action="Index">All Company Admins</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="K_Admins" asp-action="Create">Create Company Admin</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-user-cog"></i>
+                            Operators
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="k_Operators" asp-action="Index">All Operators</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="k_Operators" asp-action="Create">Create Operator</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-tasks"></i>
+                            Subsicription
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Subscriptions" asp-action="Index">All subscriptions</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="Subscriptions" asp-action="Create">Create subscription</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fa fa-cogs"></i>
+                            Job
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Jobs" asp-action="Index">All Jobs</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="Jobs" asp-action="Create">Create Job</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-hdd"></i>
+                            Hardwares
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Hardwares" asp-action="Index">All Hardwares</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="Hardwares" asp-action="Create">Create Hardware</a>
+                        </div>
+                    </li>
+                </ul>
+                }
+                @if (User.Identity.IsAuthenticated && User.IsInRole("K_Admin"))
+                {
+                <ul>
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-user-cog"></i>
+                            Operators
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="k_Operators" asp-action="Index">All Operators</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="k_Operators" asp-action="Create">Create Operator</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-tasks"></i>
+                            Subsicription
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Subscriptions" asp-action="Index">All subscriptions</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="Subscriptions" asp-action="Create">Create subscription</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fa fa-cogs"></i>
+                            Job
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Jobs" asp-action="Index">All Jobs</a>
+                            <a class="navbar-brand" asp-area="" asp-controller="Jobs" asp-action="Create">Create Job</a>
+                        </div>
+                    </li>
+                </ul>
+                }
+                @if (User.Identity.IsAuthenticated && User.IsInRole("K_Operator"))
+                {
+                <ul>
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fas fa-tasks"></i>
+                            Subsicription
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Subscriptions" asp-action="Index">All subscriptions</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <button class="dropdown-btn">
+                            <i class="fa fa-cogs"></i>
+                            Job
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Jobs" asp-action="Index">All Jobs</a>
+                        </div>
+                    </li>
+                </ul>
+                }
+            </nav>
+        </aside>
+
+        <div class="container m">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

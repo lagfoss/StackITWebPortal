@@ -1,0 +1,55 @@
+﻿@model IEnumerable<StackITmvc.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customers</h1>
+
+<hr />
+<form asp-controller="Customers" asp-action="Index" method="get">
+    <p>
+        Company Name: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" class="btn-small"/>
+        <a asp-action="Index">Back to Full List</a>
+    </p>
+</form>
+<section class="index-container">
+    <div>
+    <table class="index-container__wrapper">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VAT)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td class="table-color">
+                    @Html.DisplayFor(modelItem => item.VAT)
+                </td>
+                <td class="functions">
+                    <a class="edit" asp-action="Edit" asp-route-id="@item.CustomerId">Edit <i class="fa fa-edit"></i></a> |
+                    <a class="details" asp-action="Details" asp-route-id="@item.CustomerId">Details <i class="fa fa-info-circle"></i></a> |
+                    <a class="delete" asp-action="Delete" asp-route-id="@item.CustomerId">Delete <i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+
+
+</section>
+<div>
+    <a class="btn--primary" asp-action="Create">Create Customer</a>
+</div>

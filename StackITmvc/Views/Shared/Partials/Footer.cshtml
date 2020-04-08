@@ -1,0 +1,31 @@
+﻿@page
+@{
+    <footer class="footer">
+        <div class="site-wrapper flex">
+            <div class="contact">
+                <h2 class="contact__title contact__title--light">Contact information</h2>
+                <p class="contact__company contact__company--light">StackIT ApS</p>
+                <p class="contact__address contact__address--light">Sivlandvaenget 3, 1</p>
+                <p class="contact__address contact__address--light">5260 Odense S</p>
+                <p class="contact__phone contact__phone--light">+45 60 19 14 80</p>
+                <p class="contact__email contact__email--light">info@stackit.eu</p>
+                <p class="contact__vat contact__vat--light">VAT:DK40558195</p>
+            </div>
+            <div class="nav-secondary">
+                <h2 class="nav-secondary__title">Navigation</h2>
+                <ul class="nav-secondary-wrapper">
+                    <li class="nav-secondary__item"><a class="nav-secondary__link" asp-controller="Home" asp-action="About">About</a></li>
+                    <li class="nav-secondary__item"><a class="nav-secondary__link" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li class="nav-secondary__item"><a class="nav-secondary__link" asp-controller="Login" asp-action="Login">Login</a></li>
+                </ul>
+            </div>
+            <div class="socialmedia">
+                <h2 class="socialmedia__title">Follow us</h2>
+                <a class="socialmedia__link" href="#"><i class="fab fa-facebook-square"></i></a>
+                <a class="socialmedia__link" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="socialmedia__link" href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+    </footer>
+}

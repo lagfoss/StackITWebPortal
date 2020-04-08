@@ -1,0 +1,8 @@
+﻿@using StackITmvc
+@using StackITmvc.Models
+@using  Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+@inject SignInManager<User> signInManager;
+@inject UserManager<User> UserManager;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

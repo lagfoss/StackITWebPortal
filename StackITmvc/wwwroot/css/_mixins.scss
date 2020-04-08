@@ -1,0 +1,185 @@
+﻿@mixin button() { //tjekke igennem om der skal være funktioner
+    color: white;
+    background-color: #262D47;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+@mixin button2 {
+    width: 150px;
+    padding: 10px;
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+   // float: right;
+   margin: 30px auto 20px 80%;
+    
+}
+
+@mixin buttonSmall {
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    padding: 2px 5px;
+}
+
+@mixin buttonPrimary {
+    width: 150px;
+    padding: 10px;
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+@mixin bodyText($FontSize, $FontColor, $bodyFontFamily) {
+    font-size: $FontSize;
+    color: $FontColor;
+    font-family: $bodyFontFamily;
+}
+
+@mixin headerText($FontSize, $HeaderFontColor, $headerFontFamily) {
+    font-size: $FontSize;
+    color: $HeaderFontColor;
+    //text-transform: uppercase;
+    font-family: $headerFontFamily;
+}
+
+@mixin body($fontFamily) {
+    background-color: #171C30;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    font-family: $fontFamily;
+    height: 100vh;
+}
+
+/*@mixin main-size() {
+    margin: 20px 0;
+    padding: 0;
+    height: 100%;
+}*/
+
+//Mixins for table
+@mixin crud() {
+        align-content: end;
+        text-align: end;
+        padding: 0 20px;
+
+    .edit {
+        text-decoration: none;
+        color: #5CE665;
+        margin: 0 0 0 auto
+    }
+
+    .details {
+        text-decoration: none;
+        color: white;
+    }
+
+    .delete {
+        text-decoration: none;
+        color: red;
+    }
+
+
+}
+
+@mixin table($FontColor, $FontColors, $EvenColors, $OddColors) {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $FontColor;
+
+    th {
+        background-color: $FontColors;
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    tr:nth-child(even) {
+        background-color: $EvenColors;
+    }
+
+    tr:nth-child(odd) {
+        background-color: $OddColors;
+    }
+
+    td {
+        padding: 20px 0 20px 20px;
+    }
+}
+
+@mixin crud-form ($FontColorDark) {
+    .crud-information__wrapper {
+        padding: 25px 10%;
+        background-color: $FontColorDark;
+        height: 100%;
+
+
+        .crud-information__form {
+
+            input[type=text], input[type=tel], input[type=email], input[type=hidden], select {
+                color: #fff;
+                width: 50%;
+                padding: 12px;
+                text-align: left;
+                margin: 5px 0;
+                border: none;
+                border-bottom: 1px solid black;
+                background-color: transparent;
+            }
+
+            input[type=checkbox] {
+                width: 20px;
+            }
+
+            label {
+                width: 200px;
+                padding: 25px;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+
+@mixin create_form($FontColorDark, $BgColor1) {
+    .create-information__wrapper {
+        padding: 25px 10%;
+        background-color: $FontColorDark;
+        padding: 25px 10%;
+        height: 100%;
+
+
+        .create-information__form {
+
+            input[type=text], input[type=tel], input[type=email], input[type=password], select {
+                color: $BgColor1;
+                width: 50%;
+                padding: 12px;
+                text-align: left;
+                margin: 5px 0;
+                border: none;
+                border-bottom: 1px solid black;
+                background-color: transparent;
+            }
+
+            label {
+                width: 200px;
+                padding: 0;
+                display: inline-block;
+            }
+        }
+    }
+}
+

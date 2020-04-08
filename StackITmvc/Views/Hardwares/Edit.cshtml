@@ -1,0 +1,35 @@
+﻿@model StackITmvc.Models.Hardware
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<hr />
+<h4>Hardware</h4>
+
+<section class="crud-information">
+    <div class="crud-information__wrapper">
+        <form class="crud-information__form" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HardwareId" />
+            <div class="form-group">
+                <label asp-for="HardwareName" class="control-label"></label>
+                <input asp-for="HardwareName" class="form-control" />
+                <span asp-validation-for="HardwareName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn_blue" />
+            </div>
+        </form>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</section>
+
+    
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

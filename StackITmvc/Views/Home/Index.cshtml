@@ -1,0 +1,79 @@
+﻿@{Layout = "_homePage";
+
+    ViewData["Title"] = "Home Page";
+}
+
+<main>
+    <section class="intro">
+        <div class="site-wrapper flex">
+            <div class="intro__wrapper-left">
+                <h1 class="intro__title">Welcome to StackIT</h1>
+                <p class="intro__text">
+                    An online solution for programming robots in chip making
+                    manufacturing companies.
+                    The programming is done off-site, which is made possible through it
+                    developed hardware and software
+                    The goal is to make it possible to program all types of robots and all types of
+                    CNC machines
+                </p>
+                <a class="btn intro__button" asp-controller="Home" asp-action="About">About us</a>
+            </div>
+
+            <div class="intro__wrapper-right">
+                <img class="intro__image" src="image/robotic.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!--Services section-->
+    <section class="services-frontPage">
+        <div class="site-wrapper">
+            <h2 class="services__title">Services</h2>
+            <div class="services-wrapper flex">
+                <div class="services__hover">
+                    <i class="fas fa-robot"></i>
+                    <h2 class="services-focusbox__title">CNC-services</h2>
+                    <p class="services-focusbox__text">
+                        CNC machining, requires money and experience to work well.
+                        Bypass those barriers with our smart solution.
+                    </p>
+                </div>
+                <div class="services__hover">
+                    <i class="fas fa-robot"></i>
+                    <h2 class="services-focusbox__title">Robot installation</h2>
+                    <p class="services-focusbox__text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit, amet consectetur.
+                    </p>
+                </div>
+                <div class="services__hover">
+                    <i class="fas fa-robot"></i>
+                    <h2 class="services-focusbox__title">Title</h2>
+                    <p class="services-focusbox__text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Lorem ipsum dolor sit, amet consectetur
+                    </p>
+                </div>
+            </div>
+            <div class="services-button-hover flex">
+                <a class="btn services__btn" asp-controller="Home" asp-action="About">All services</a>
+            </div>
+        </div>
+    </section>
+
+    <!--Partner section-->
+    <section class="partner">
+        <div class="site-wrapper">
+            <h3 class="partner__title">Our Partners</h3>
+            <div class="partner__imageWrapper flex autoplay">
+                <div><img class="partner__img" src="Image/partner.png" alt=""></div>
+                <div><img class="partner__img" src="Image/partner.png" alt=""></div>
+                <div><img class="partner__img" src="Image/partner.png" alt=""></div>
+                <div><img class="partner__img" src="Image/partner.png" alt=""></div>
+                <div><img class="partner__img" src="Image/partner.png" alt=""></div>
+                <div><img class="partner__img" src="Image/partner.png" alt=""></div>
+                <div><img class="partner__img" src="Image/partner.png" alt=""></div>
+            </div>
+        </div>
+    </section>
+</main>

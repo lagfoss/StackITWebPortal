@@ -1,0 +1,776 @@
+﻿@import "reset";
+@import "vars";
+@import "mixins";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap');
+
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+body {
+    @include body($fontFamily);
+
+    a {
+        text-decoration: none;
+        color: $BgColor1;
+    }
+}
+.wrapper {
+    height: 100%;
+    display: grid;
+    grid-gap: 1px;
+    //grid-template-rows: repeat(12,50px);
+    grid-template-columns: repeat(6, 100px);
+    // grid-template-columns: 100px 100px;
+    grid-template-areas:
+        "n n n h h h h h h h h h"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m"
+        "n n n m m m m m m m m m";
+}
+
+.h, .n, .m {
+    color: $BgColor1;
+    padding: 15px;
+    background: rgb(253,183,175);
+}
+
+.h {
+    height: 60px;
+    padding: 15px;
+    grid-area: h;
+    background-color: $FontColorDark;
+    display: flex;
+    flex-direction: row;
+
+    .header__link {
+        display: flex;
+    }
+
+    .header__link div {
+        font-size: 40px;
+        margin: auto;
+        padding-left: 10px;
+    }
+
+    .header__link img {
+        height: 60px;
+    }
+    /* login*/
+    .login-person {
+        margin: auto 0 auto auto;
+    }
+
+    .login-person button {
+        background-color: inherit;
+        color: inherit;
+        border: none;
+        font-size: $navFontSize;
+    }
+}
+
+
+.n {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-area: n;
+    background-color: $FontColorDark;
+}
+
+.m {
+    grid-area: m;
+    background-color: $FooterBgColor;
+}
+//style for headline
+/*nav drop down styling*/
+.navbar {
+    margin: 75px 0 0 0;
+    padding: 0;
+    bottom: 0;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dropdown-container {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        display: none;
+        margin: 0 0 0 50px;
+
+        .navbar-brand {
+            width: 100%;
+            display: inline-block;
+            font-size: 16px;
+            padding: 10px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+    }
+
+    .dropdown-btn {
+        color: $FontColorBright;
+        padding: 10px 0 10px;
+        text-decoration: none;
+        display: flex;
+        border: none;
+        background: none;
+        outline: none;
+        width: 100%;
+        font-size: $navFontSize;
+    }
+
+    .dropdown-btn i {
+        width: 50px;
+    }
+
+    .fa fa-caret-down {
+        padding-left: 200px;
+        background: red;
+    }
+}
+
+// All Customers, All k_Admin, all subscription and all operators
+.index-container {
+    //@include main-size();
+    background-color: $FontColorDark;
+
+
+    .index-container__wrapper {
+        @include table($FontColorDark, $FontColorDark, $EvenColor, $OddColor);
+
+        .functions {
+            @include crud();
+        }
+    }
+
+    .btn-blue {
+        @include button2();
+    }
+}
+
+.btn-small {
+    @include buttonSmall();
+}
+
+.btn--primary {
+    @include buttonPrimary();
+    margin: 20px 0 auto;
+    float: right;
+}
+
+// create customer, create K_admin
+.create-information {
+    @include create_form($FontColorDark, $BgColor1);
+}
+
+
+//edit page
+.crud-information {
+    @include crud-form($FontColorDark);
+}
+
+    .btn_blue {
+        @include button2();
+    }
+.list {
+    //background:red;
+}
+
+//details information
+.detail-information, .delete-information {
+    background-color: $FontColorDark;
+
+    .detail-information__wrapper, .delete-information__wrapper {
+        padding: 25px;
+
+
+        th {
+            background-color: $FontColorDark;
+            text-align: left;
+            border: none;
+            width: 200px;
+            padding: 12px 0;
+        }
+
+        td {
+            margin: auto;
+        }
+    }
+}
+
+//Homepage------------------------------------
+.intro
+{
+  height: 100%;
+  width: 160px;
+  
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+.navbar-brand{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+        /* Sticky footer styles
+-------------------------------------------------- */
+        html {
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+        }
+
+        .border-top {
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .border-bottom {
+        }
+
+        .box-shadow {
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+        }
+
+        button.accept-policy {
+            font-size: 1rem;
+            line-height: inherit;
+        }
+        /* Sticky footer styles
+-------------------------------------------------- */
+        html {
+            //position: relative;
+            min-height: 100%;
+        }
+
+        .footer {
+
+            width: 100%;
+            //white-space: nowrap;
+            //line-height: 60px; /* Vertically center the text there */
+        }
+        //-------------------------------------------------------------
+
+        .flex {
+            display: $flex;
+        }
+        //Styling for the frontpage
+
+.site-wrapper { 
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+        //Header
+.site-header {
+    background: #fff;
+
+    .header__logo {
+        height: 60px;
+    }
+
+    .nav-primary {
+        list-style-type: none;
+        overflow: hidden;
+        font-size: 22px;
+    }
+
+    .nav-primary__item--left {
+        float: left;
+    }
+
+    .nav-primary__item--right {
+        float: right;
+    }
+
+    .nav-primary__link--image {
+        display: block;
+        @include bodyText($fontSize, black, $fontFamily);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .nav-primary__link {
+        display: block;
+        @include bodyText($navFontSize, black, $fontFamily);
+        text-align: center;
+        padding: 26px 16px;
+        text-decoration: none;
+    }
+
+}
+        // frontpage-header-section
+        .intro {
+            background: $HeaderBgColor;
+            width: 100%;
+            padding: 50px 0px 50px 0px;
+            display: $flex;
+            flex-direction: row;
+
+            .intro__button {
+                @include button();
+            }
+
+            .intro__wrapper-left {
+                float: $floatLeft;
+            }
+
+            .intro__wrapper-right {
+                float: $floatRight;
+            }
+
+            .intro__image {
+                width: 342px;
+                height: 321px;
+            }
+
+            .intro__title {
+                @include headerText($headerFontSize, $fontColor, $fontFamily);
+                font-weight: 700;
+            }
+
+            .intro__text {
+                @include bodyText($fontSize, $fontColor, $fontFamily);
+                width: 65%;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+        }
+        // frontpage-Services-section
+        .services-frontPage {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background-color: $BgColor1;
+
+            .services__title {
+                @include headerText($headerFontSize, $fontColor, $fontFamily);
+                text-align: center;
+                padding-bottom: 50px;
+            }
+
+            .services-button-hover {
+                padding-top: 50px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .services__btn {
+                @include button();
+                font-family: $fontFamily;
+            }
+
+            .services-wrapper {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+
+            .services__hover {
+                transition: box-shadow .3s;
+                padding: 40px 20px 16px;
+                min-height: 50px;
+                margin-bottom: 20px;
+                max-width: 320px;
+
+                .services-focusbox__title {
+                    color: black;
+                    @include headerText(24px, $fontColor, $fontFamily);
+                }
+
+                .services-focusbox__text {
+                    @include bodyText($fontSize, $FontColorDark, $fontFamily);
+                }
+
+                .fas {
+                    color: black;
+                    font-size: 50px;
+                    padding-left: 20px;
+                    padding-bottom: 10px;
+                }
+
+                &:hover {
+                    box-shadow: 0 0 11px rgba(33,33,33,.2);
+                }
+            }
+        }
+        // frontpage-Solution-section
+        // frontpage-partner-section
+        .partner {
+            background: $BgColor2;
+
+            .partner__title {
+                @include headerText($headerFontSize, $fontColor, $fontFamily);
+                color: $FontColorBright;
+                text-align: center;
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+
+            .partner__imageWrapper {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                padding-bottom: 50px;
+
+                .partner__img {
+                    width: 200px;
+                    height: 133px;
+                }
+            }
+        }
+        //About stackIT
+        .about {
+            padding: 50px 0px 50px 0px;
+            background-color: $HeaderBgColor;
+            display: $flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .about__wrapper-left {
+            float: $floatLeft;
+        }
+
+        .about__wrapper-right {
+            float: $floatRight;
+        }
+
+        .about__image {
+            width: 600px;
+            height: 300px;
+        }
+
+        .about__title {
+            @include headerText($headerFontSize, $fontColor, $fontFamily);
+            font-weight: 700;
+        }
+
+        .about__text {
+            @include bodyText($fontSize, $fontColor, $fontFamily);
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        //Services section in About page
+        .services-about {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background-color: $BgColor1;
+
+            .about-services__title {
+                text-align: center;
+                padding-bottom: 50px;
+                @include headerText($headerFontSize, $fontColor, $fontFamily);
+            }
+
+            .about-services__wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+            }
+
+            .about-services__hover {
+                flex: 0 0 33.33%;
+                transition: box-shadow .3s;
+                padding: 40px 20px 16px;
+                min-height: 50px;
+                margin-bottom: 20px;
+                max-width: 320px;
+
+
+                .about-focusbox__title {
+                    font-weight: 700;
+                    @include headerText(24px, $fontColor, $fontFamily);
+                }
+
+                .about-focusbox__text {
+                    font-weight: 400;
+                    @include bodyText($fontSize, $FontColorDark, $fontFamily);
+                }
+
+                .fas {
+                    color: black;
+                    font-size: 50px;
+                    padding-left: 20px;
+                    padding-bottom: 10px;
+                }
+
+                &:hover {
+                    box-shadow: 0 0 11px rgba(33,33,33,.2);
+                }
+            }
+        }
+        //Contact page
+        .contact-informations {
+            display: flex;
+            flex-direction: row;
+            background: $HeaderBgColor;
+            padding-top: 50px;
+            padding-bottom: 50px;
+
+            .contact__company--dark, .contact__phone--dark, .contact__email--dark, .contact__vat--dark {
+                color: $FontColorDark;
+            }
+
+            .contact__address {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .contact__company {
+                margin-bottom: 0;
+            }
+
+            .contact__email {
+                margin-top: 0;
+            }
+
+            .contact__phone {
+                margin-bottom: 0;
+            }
+
+            .form-group__field {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0px 20px 0px;
+                box-sizing: border-box;
+            }
+
+            .form-group__label {
+                @include bodyText($fontSize, $FontColorDark, $fontFamily);
+            }
+
+            .btn {
+                @include button();
+                float: $floatRight;
+            }
+
+            .contact-informations__wrapper {
+                width: 60%;
+            }
+
+            .contact-informations__title {
+                @include headerText($headerFontSize, $fontColor, $fontFamily);
+                padding-bottom: 20px;
+            }
+
+            .contact__title {
+                @include headerText($headerFontSize, $fontColor, $fontFamily);
+                padding-bottom: 20px;
+            }
+
+            .contact__wrapper {
+                width: 40%;
+                padding-left: 100px;
+            }
+        }
+        //Our Members
+        .contact-members {
+            background: $BgColor2;
+            padding: 40px 40px;
+
+            .contact-members__wrapper {
+                max-width: 200px;
+            }
+
+            .contact-members__title {
+                text-align: center;
+                padding: 8px 4px 50px;
+                @include headerText($headerFontSize, $FontColorBright, $fontFamily);
+            }
+
+            .contact-members__img {
+                width: 99px;
+                height: 115px;
+                box-sizing: border-box;
+            }
+
+            .contact-members__phone, .contact-members__name, .contact-members__email {
+                @include bodyText(10px, $FontColorBright, $fontFamily);
+                font-weight: 400;
+            }
+
+            .contact-members__job {
+                font-weight: 700;
+                @include headerText(14px, $FontColorBright, $fontFamily);
+            }
+
+            .testcontact {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+        //map
+        .google-maps {
+            height: 250px;
+        }
+        // Our services
+        .services {
+            color: $FontColorBright;
+            background: $BgColor2;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 25px 0;
+        }
+
+        .services__wrapper {
+            display: block;
+        }
+        //loginpage
+        .login {
+            background-image: url('../Image/login2.png');
+            background-size: 100%;
+            height: 650px;
+            position: relative;
+        }
+        //login form
+        .login__wrapper {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 30px;
+            width: 400px;
+            height: 350px;
+            background-color: $HeaderBgColor;
+
+            .input-field {
+                width: 100%;
+                margin: 8px 0px 20px 0px;
+                padding: 10px 0 10px 10px;
+                box-sizing: border-box;
+            }
+            //button positioning using the padding 30px for bomttom and left
+            .btn-wrapper {
+                position: absolute;
+                bottom: 30px;
+                right: 30px;
+            }
+
+            .action-link {
+                float: $floatRight;
+                @include bodyText($fontSize, $FontColorDark, $fontFamily);
+            }
+
+            .login__email, .login__password {
+                margin: 0;
+                @include bodyText($fontSize, $FontColorDark, $fontFamily);
+            }
+
+            .login__title {
+                padding-bottom: 20px;
+                @include headerText(30px, $fontColor, $fontFamily);
+            }
+
+            .login__button {
+                @include button();
+            }
+
+            label {
+                display: inline-block;
+            }
+
+            h2 {
+                text-align: center;
+            }
+        }
+        //Styling for the footer
+        .footer {
+            background: $FooterBgColor;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            // Contact information
+            .contact {
+                .contact__company--light, .contact__address--light, .contact__phone--light, .contact__email--light, .contact__vat--light {
+                    @include bodyText($fontSize, $FontColorBright, $fontFamily);
+                }
+
+                .contact__address, .contact__company {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+            // Shortcuts
+            .nav-secondary__item a {
+                text-decoration: none;
+                @include bodyText($fontSize, $FontColorBright, $fontFamily);
+            }
+
+            .nav-secondary-wrapper {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            // Social media
+            .contact {
+                width: 53%;
+                text-align: left;
+            }
+
+            .nav-secondary {
+                width: 35%;
+            }
+
+            .socialmedia {
+                width: 30%;
+                text-align: right;
+            }
+
+            .fa-facebook-square, .fa-instagram, .fa-linkedin {
+                font-size: 40px;
+                color: $FontColorBright;
+            }
+
+            .fa-instagram {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .nav-secondary-wrapper {
+                margin: 0;
+            }
+
+            .socialmedia__title, .nav-secondary__title, .contact__title {
+                @include headerText(24px, $FontColorBright, $fontFamily);
+                padding-bottom: 20px;
+            }
+
+            .contact__address {
+                margin: 0;
+            }
+
+            .contact__phone {
+                margin-bottom: 0;
+            }
+
+            .contact__email {
+                margin-top: 0;
+            }
+        }
+ 

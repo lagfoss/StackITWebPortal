@@ -1,0 +1,31 @@
+﻿@model StackITmvc.Models.Hardware
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+<h4>Hardware</h4>
+
+    <section class="detail-information">
+        <table class="detail-information__wrapper">
+            <tr>
+                <th class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.HardwareName)
+                </th>
+                <td class="col-sm-10">
+                    @Html.DisplayFor(model => model.HardwareName)
+                </td>
+            </tr>
+        </table>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="HardwareId" />
+            <input type="submit" value="Delete" class="btn_blue" />
+
+        </form>
+    </section>
+    <a asp-action="Index">Back to List</a>

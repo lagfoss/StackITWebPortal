@@ -1,0 +1,39 @@
+﻿@model IEnumerable<StackITmvc.Models.Hardware>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Hardwares</h1>
+<hr />
+
+<section class="index-container">
+    <table class="index-container__wrapper">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.HardwareName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HardwareName)
+                    </td>
+                    <td class="functions">
+                        <a class="edit" asp-action="Edit" asp-route-id="@item.HardwareId">Edit <i class="fa fa-edit"> </i></a> |
+                        <a class="details" asp-action="Details" asp-route-id="@item.HardwareId">Details <i class="fa fa-info-circle"> </i></a> |
+                        <a class="delete" asp-action="Delete" asp-route-id="@item.HardwareId">Delete <i class="fa fa-trash"> </i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+<div>
+    <a class="btn--primary" asp-action="Create">Create Hardware</a>
+</div>

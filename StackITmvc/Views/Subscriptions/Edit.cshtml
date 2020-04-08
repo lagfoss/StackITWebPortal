@@ -1,0 +1,133 @@
+﻿@model StackITmvc.Models.Subscription
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<hr />
+<h4>Subscription</h4>
+
+
+<section class="crud-information">
+    <div class="crud-information__wrapper">
+        <form class="crud-information__form" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SubscriptionId" />
+            <div class="form-group">
+                <label asp-for="SubscriptionName" class="control-label"></label>
+                <input asp-for="SubscriptionName" class="form-control" />
+                <span asp-validation-for="SubscriptionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div>
+
+                        @{
+                            int count = 0;
+                            List<StackITmvc.Models.StackItViewModels.AssignedUserData> users = ViewBag.Users;
+
+                            foreach (var user in users)
+                            {
+                                if (count++ % 3 == 0)
+                                {
+                                    @:
+                                }
+
+                                @if (user.UserLevel == "K_Admin")
+                                {
+                                    <div>
+                                        <input type="checkbox"
+                                               name="selectedUsers"
+                                               value="@user.UserId"
+                                               @(Html.Raw(user.Assigned ? "checked=\"checked\"" : "")) />
+                                          @user.UserName (K_admin)
+                                    </div>
+                                }
+
+                                if (user.UserLevel == "K_Operator")
+                                {
+                                    <div>
+                                        <input type="checkbox"
+                                               name="selectedUsers"
+                                               value="@user.UserId"
+                                               @(Html.Raw(user.Assigned ? "checked=\"checked\"" : "")) />
+                                         @user.UserName (K_operator)
+                                    </div>
+                                }
+
+
+                            }
+                            @:
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="HardwareId" class="control-label"></label>
+                <select asp-for="HardwareId" class="form-control" asp-items="ViewBag.HardwareId"></select>
+                <span asp-validation-for="HardwareId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div>
+
+                        @{
+                            int cnt = 0;
+                            List<StackITmvc.Models.StackItViewModels.AssignedJobData> jobs = ViewBag.Jobs;
+
+                            foreach (var job in jobs)
+                            {
+                                if (cnt++ % 3 == 0)
+                                {
+                                    @:
+
+
+
+
+
+
+
+
+                                }
+                                @:<div>
+                                    <input type="checkbox"
+                                           name="selectedJobs"
+                                           value="@job.JobId"
+                                           @(Html.Raw(job.Assigned ? "checked=\"checked\"" : "")) />
+                                      @job.JobName
+                                @:</div>
+                            }
+                            @:
+
+
+
+
+
+
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn_blue" />
+            </div>
+        </form>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

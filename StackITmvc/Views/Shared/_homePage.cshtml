@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Pages</title>
+    <link rel="stylesheet" href="~/css/stylesheet.css" />
+    <script src="https://kit.fontawesome.com/d17f325ac5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    @Html.Partial("Partials/Header")
+
+    <main class="container">
+        @RenderBody()
+    </main>
+
+    @Html.Partial("Partials/Footer")
+
+
+
+
+</body>
+</html>
